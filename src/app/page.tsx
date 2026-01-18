@@ -61,19 +61,19 @@ export default function Home() {
           />
         </div>
 
-        <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-display font-bold tracking-tighter uppercase leading-[0.85] text-stranger-things relative z-10">
+        <h1 className="text-5xl md:text-8xl lg:text-[9rem] font-display font-bold tracking-tighter uppercase leading-[0.85] text-stranger-things relative z-10">
           DJ<br />Magnuz
         </h1>
-        <h2 className="text-xl md:text-3xl font-bold tracking-widest mt-2 z-10 text-stranger-things-sm">
+        <h2 className="text-lg md:text-3xl font-bold tracking-widest mt-1 z-10 text-stranger-things-sm">
           El Emperador del Techno
         </h2>
-        <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 mt-4">
-          <span className="text-sm md:text-base font-bold tracking-wider text-stranger-things-sm border border-purple-500/50 px-4 py-1 rounded-full bg-black/30 backdrop-blur-sm">
+        <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 mt-3">
+          <span className="text-xs md:text-base font-bold tracking-wider text-stranger-things-sm border border-purple-500/50 px-3 py-1 rounded-full bg-black/30 backdrop-blur-sm">
             Guatemala
           </span>
         </div>
 
-        <p className="font-mono text-xs md:text-sm text-purple-300/80 italic mt-4 max-w-2xl">
+        <p className="font-mono text-[10px] md:text-sm text-purple-300/80 italic mt-3 max-w-2xl px-4">
           "En las profundidades de la escena underground de Guatemala, una fuerza emerge..."
         </p>
       </StorySection>
@@ -125,13 +125,13 @@ export default function Home() {
 
       {/* Chapter 3: The Battlefield */}
       <StorySection animation="fade-up" delay={200} className="w-full max-w-7xl z-10 min-h-[60svh] md:min-h-0 flex items-center">
-        <div className="bg-black/60 backdrop-blur-md border border-white/5 p-5 md:p-8 relative overflow-hidden w-full">
+        <div className="bg-black/60 backdrop-blur-md border border-white/5 p-4 md:p-8 relative overflow-hidden w-full">
           <div className="absolute -top-20 -right-20 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
-          <h3 className="text-xs font-mono uppercase text-accent mb-4 tracking-widest">
+          <h3 className="text-[10px] font-mono uppercase text-accent mb-3 tracking-widest">
             Territorios Conquistados
           </h3>
-          <p className="font-mono text-xs text-purple-300/70 italic mb-4">
+          <p className="font-mono text-[9px] text-purple-300/70 italic mb-3">
             "Desde clubes legendarios hasta rave secretos, el Emperador ha dejado su marca..."
           </p>
           <div className="flex flex-wrap gap-2">
@@ -153,16 +153,16 @@ export default function Home() {
 
       {/* Chapter 4: The Arsenal */}
       <StorySection animation="slide-right" delay={150} className="w-full max-w-7xl z-10 min-h-[70svh] md:min-h-0 flex items-center">
-        <div className="bg-black/60 backdrop-blur-md border border-white/5 p-5 md:p-8 space-y-6 w-full">
+        <div className="bg-black/60 backdrop-blur-md border border-white/5 p-4 md:p-8 space-y-4 w-full">
           <div>
-            <h3 className="text-xs font-mono uppercase text-accent mb-3 tracking-widest">
+            <h3 className="text-[10px] font-mono uppercase text-accent mb-2 tracking-widest">
               Arsenal Sónico
             </h3>
-            <p className="font-mono text-xs text-purple-300/70 italic mb-4">
+            <p className="font-mono text-[9px] text-purple-300/70 italic mb-3">
               "Armado con frecuencias que doblan la realidad..."
             </p>
-            <div className="flex flex-col gap-3">
-              <div className="flex flex-wrap gap-x-3 gap-y-1 text-base md:text-2xl font-display font-bold uppercase leading-none text-white">
+            <div className="flex flex-col gap-2">
+              <div className="flex flex-wrap gap-x-2 gap-y-0.5 text-sm md:text-2xl font-display font-bold uppercase leading-none text-white">
                 {ARTIST_DATA.genres.map((genre, i) => (
                   <span key={genre} className="hover:text-accent transition-colors cursor-default">
                     {genre}{i < ARTIST_DATA.genres.length - 1 && <span className="text-accent/50"> / </span>}

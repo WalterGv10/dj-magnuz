@@ -187,6 +187,13 @@ body {
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Faster transitions on mobile for performance */
+@media (max-width: 767px) {
+  .story-section {
+    transition: all 0.4s ease-out;
+  }
+}
+
 .story-fade-up {
   transform: translateY(30px);
 }
@@ -214,5 +221,29 @@ body {
     transition: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+/* Mobile performance optimization */
+@media (max-width: 767px) {
+
+  /* Disable expensive effects on mobile */
+  .mix-blend-screen,
+  .mix-blend-overlay,
+  .mix-blend-multiply {
+    mix-blend-mode: normal;
+  }
+
+  /* Reduce blur effects */
+  .backdrop-blur-xl {
+    backdrop-filter: blur(8px);
+  }
+
+  .backdrop-blur-md {
+    backdrop-filter: blur(4px);
+  }
+
+  .backdrop-blur-sm {
+    backdrop-filter: blur(2px);
   }
 }

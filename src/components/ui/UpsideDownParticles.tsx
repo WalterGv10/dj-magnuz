@@ -18,11 +18,12 @@ export default function UpsideDownParticles() {
         const canvas = canvasRef.current;
         if (!canvas) return;
 
-        const ctx = canvas.getContext("2d");
+        const ctx = canvas.getContext("2d", { alpha: true });
         if (!ctx) return;
 
         let animationFrameId: number;
         let particles: Particle[] = [];
+        let frameCount = 0;
 
         const resizeCanvas = () => {
             canvas.width = window.innerWidth;
@@ -30,28 +31,47 @@ export default function UpsideDownParticles() {
         };
 
         const createParticles = () => {
-            const particleCount = Math.floor(window.innerWidth * 0.15); // Density
+            // Aggressive reduction for mobile performance
+            const isMobile = window.innerWidth < 768;
+            const particleCount = isMobile
+                ? Math.min(25, Math.floor(window.innerWidth * 0.06)) // Max 25 particles on mobile
+                : Math.floor(window.innerWidth * 0.10);
             particles = [];
             for (let i = 0; i < particleCount; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    size: Math.random() * 2 + 0.5,
-                    speedX: (Math.random() - 0.5) * 0.5,
-                    speedY: Math.random() * 0.5 + 0.2, // Drifting down slowly
-                    opacity: Math.random() * 0.5 + 0.1,
+                    size: Math.random() * 1.5 + 0.5, // Smaller particles
+                    speedX: (Math.random() - 0.5) * 0.2,
+                    speedY: Math.random() * 0.3 + 0.1,
+                    opacity: Math.random() * 0.3 + 0.1,
                 });
             }
         };
 
         const drawParticles = () => {
+            // Skip frames on mobile for better performance (30fps instead of 60fps)
+            const isMobile = window.innerWidth < 768;
+            if (isMobile && frameCount % 2 !== 0) {
+                frameCount++;
+                animationFrameId = requestAnimationFrame(drawParticles);
+                return;
+            }
+            frameCount++;
+
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             particles.forEach((p) => {
-                ctx.fillStyle = `rgba(200, 200, 200, ${p.opacity})`;
+                ctx.fillStyle = `rgba(220, 180, 255, ${p.opacity})`;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                 ctx.fill();
+
+                // Skip glow on mobile for performance
+                if (!isMobile) {
+                    ctx.shadowBlur = 3;
+                    ctx.shadowColor = `rgba(255, 0, 204, ${p.opacity * 0.3})`;
+                }
 
                 // Update position
                 p.x += p.speedX;
@@ -80,7 +100,8 @@ export default function UpsideDownParticles() {
     return (
         <canvas
             ref={canvasRef}
-            className="fixed inset-0 z-[5] pointer-events-none mix-blend-overlay opacity-60"
+            className="fixed inset-0 z-[5] pointer-events-none opacity-40"
+            style={{ willChange: 'auto' }}
         />
     );
 }
