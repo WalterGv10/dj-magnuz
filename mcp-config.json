@@ -1,0 +1,26 @@
+{
+  "project_name": "TechnoIdentity_Platform_2025",
+  "mcp_server": {
+    "type": "supabase-mcp-server",
+    "env_vars": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"]
+  },
+  "capabilities": {
+    "resources": [
+      "supabase://storage/audio_vault",
+      "supabase://storage/epk_assets",
+      "supabase://table/discography"
+    ],
+    "tools": [
+      {
+        "name": "upload_track_asset",
+        "description": "Uploads audio file to 'audio_vault' bucket and registers metadata in DB",
+        "args": ["file_path", "track_title", "bpm", "genre"]
+      },
+      {
+        "name": "sync_press_kit",
+        "description": "Updates press photos in 'epk_assets' bucket and regenerates public links",
+        "args": ["file_list", "version_tag"]
+      }
+    ]
+  }
+}
