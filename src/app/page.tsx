@@ -3,6 +3,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 import UpsideDownParticles from "@/components/ui/UpsideDownParticles";
+import NeonFlex from "@/components/ui/NeonFlex";
+import StorySection from "@/components/ui/StorySection";
 
 const ARTIST_DATA = {
   profile: {
@@ -34,7 +36,7 @@ const ARTIST_DATA = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full flex flex-col items-center justify-center p-4 md:p-8 gap-8 md:gap-12 lg:gap-16 overflow-x-hidden relative">
+    <main className="min-h-screen w-full flex flex-col items-center justify-center p-4 md:p-8 gap-16 md:gap-24 lg:gap-32 overflow-x-hidden relative">
       <UpsideDownParticles />
 
       {/* Turbulence Filter for Rift Effect */}
@@ -45,8 +47,9 @@ export default function Home() {
         </filter>
       </svg>
 
-      {/* Hero Section */}
-      <section className="relative flex flex-col items-center gap-4 text-center max-w-5xl z-10 mt-8 md:mt-12 lg:mt-0">
+      {/* Chapter 1: The Introduction */}
+      <StorySection animation="fade-up" className="relative flex flex-col items-center justify-center gap-4 text-center max-w-5xl z-10 min-h-[100svh] md:min-h-0 md:mt-12 lg:mt-0">
+        <NeonFlex />
 
         {/* Kids on Bikes Silhouette - Nanobanana Transparent (Hero Top Center) */}
         <div className="absolute -top-16 md:-top-24 left-1/2 -translate-x-1/2 opacity-0 animate-in fade-in duration-1000 delay-500 fill-mode-forwards w-[180px] h-[50px] md:w-[300px] md:h-[90px] pointer-events-none z-0">
@@ -61,19 +64,22 @@ export default function Home() {
         <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-display font-bold tracking-tighter uppercase leading-[0.85] text-stranger-things relative z-10">
           DJ<br />Magnuz
         </h1>
-        <h2 className="text-xl md:text-3xl font-display font-medium text-neon-subtitle uppercase tracking-widest mt-2 z-10 animate-pulse">
+        <h2 className="text-xl md:text-3xl font-bold tracking-widest mt-2 z-10 text-stranger-things-sm">
           El Emperador del Techno
         </h2>
         <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 mt-4">
-          <span className="text-xs md:text-sm font-mono text-white/60 uppercase tracking-wider border border-white/20 px-3 py-1 rounded-full">
+          <span className="text-sm md:text-base font-bold tracking-wider text-stranger-things-sm border border-purple-500/50 px-4 py-1 rounded-full bg-black/30 backdrop-blur-sm">
             Guatemala
           </span>
         </div>
-      </section>
 
-      {/* Image & Bio Grid */}
-      <section className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center z-10">
+        <p className="font-mono text-xs md:text-sm text-purple-300/80 italic mt-4 max-w-2xl">
+          "En las profundidades de la escena underground de Guatemala, una fuerza emerge..."
+        </p>
+      </StorySection>
 
+      {/* Chapter 2: The Emperor */}
+      <StorySection animation="slide-left" delay={100} className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center z-10 min-h-[80svh] md:min-h-0">
         {/* Image Column (5/12 on desktop) */}
         <div className="md:col-span-5 relative group w-full max-w-[300px] md:max-w-none mx-auto">
           {/* Rift/Gate Visual Element */}
@@ -102,69 +108,146 @@ export default function Home() {
         </div>
 
         {/* Bio/Info Column (7/12 on desktop) */}
-        <div className="md:col-span-7 flex flex-col gap-6 bg-black/60 backdrop-blur-md border border-white/5 p-5 md:p-8 shadow-2xl relative overflow-hidden">
-          {/* Decorative faint glow */}
-          <div className="absolute -top-20 -right-20 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="space-y-3 relative z-10">
-            <p className="font-mono text-sm leading-relaxed text-stone-100 border-l-2 border-accent pl-4 drop-shadow-md">
+        <div className="md:col-span-7 flex flex-col gap-4">
+          <StorySection animation="fade-up" delay={300}>
+            <h3 className="font-mono text-xs md:text-sm text-purple-300 uppercase tracking-widest mb-2">
+              El Emperador del Techno
+            </h3>
+            <p className="font-mono text-sm leading-relaxed text-stone-100 border-l-2 border-accent pl-4">
               {ARTIST_DATA.profile.bio}
             </p>
-            <p className="font-mono text-[10px] md:text-xs text-stone-400 italic pl-4">
+            <p className="font-mono text-xs text-stone-400 italic pl-4 mt-2">
               "{ARTIST_DATA.profile.evolution}"
             </p>
-          </div>
+          </StorySection>
+        </div>
+      </StorySection>
 
-          <div className="space-y-4 relative z-10">
-            <div className="border-t border-white/10 pt-4">
-              <h3 className="text-[10px] font-mono uppercase text-accent mb-2 tracking-widest drop-shadow-md">Dominios (Venues)</h3>
+      {/* Chapter 3: The Battlefield */}
+      <StorySection animation="fade-up" delay={200} className="w-full max-w-7xl z-10 min-h-[60svh] md:min-h-0 flex items-center">
+        <div className="bg-black/60 backdrop-blur-md border border-white/5 p-5 md:p-8 relative overflow-hidden w-full">
+          <div className="absolute -top-20 -right-20 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+
+          <h3 className="text-xs font-mono uppercase text-accent mb-4 tracking-widest">
+            Territorios Conquistados
+          </h3>
+          <p className="font-mono text-xs text-purple-300/70 italic mb-4">
+            "Desde clubes legendarios hasta rave secretos, el Emperador ha dejado su marca..."
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {ARTIST_DATA.venues.map((venue, i) => (
+              <StorySection
+                key={venue}
+                animation="scale-in"
+                delay={300 + (i * 50)}
+                className="inline-block"
+              >
+                <span className="px-3 py-1.5 border border-white/20 text-xs font-mono uppercase bg-white/10 hover:bg-accent/20 hover:border-accent hover:text-white transition-all duration-300 shadow-sm cursor-default">
+                  {venue}
+                </span>
+              </StorySection>
+            ))}
+          </div>
+        </div>
+      </StorySection>
+
+      {/* Chapter 4: The Arsenal */}
+      <StorySection animation="slide-right" delay={150} className="w-full max-w-7xl z-10 min-h-[70svh] md:min-h-0 flex items-center">
+        <div className="bg-black/60 backdrop-blur-md border border-white/5 p-5 md:p-8 space-y-6 w-full">
+          <div>
+            <h3 className="text-xs font-mono uppercase text-accent mb-3 tracking-widest">
+              Arsenal Sónico
+            </h3>
+            <p className="font-mono text-xs text-purple-300/70 italic mb-4">
+              "Armado con frecuencias que doblan la realidad..."
+            </p>
+            <div className="flex flex-col gap-3">
+              <div className="flex flex-wrap gap-x-3 gap-y-1 text-base md:text-2xl font-display font-bold uppercase leading-none text-white">
+                {ARTIST_DATA.genres.map((genre, i) => (
+                  <span key={genre} className="hover:text-accent transition-colors cursor-default">
+                    {genre}{i < ARTIST_DATA.genres.length - 1 && <span className="text-accent/50"> / </span>}
+                  </span>
+                ))}
+              </div>
               <div className="flex flex-wrap gap-1.5">
-                {ARTIST_DATA.venues.map((venue) => (
-                  <span key={venue} className="px-2 py-0.5 border border-white/20 text-[10px] md:text-xs font-mono uppercase bg-white/10 hover:bg-accent/20 hover:border-accent hover:text-white transition-all duration-300 shadow-sm cursor-default">
-                    {venue}
+                {ARTIST_DATA.subGenres.map((sub) => (
+                  <span key={sub} className="text-[10px] font-mono text-stone-300 border border-white/10 px-2 py-0.5 rounded-full bg-white/5">
+                    {sub}
                   </span>
                 ))}
               </div>
             </div>
+          </div>
 
-            <div className="border-t border-white/10 pt-4">
-              <h3 className="text-[10px] font-mono uppercase text-accent mb-2 tracking-widest drop-shadow-md">Frecuencias (Genres)</h3>
-              <div className="flex flex-col gap-2">
-                <div className="flex flex-wrap gap-x-2 gap-y-0.5 text-sm md:text-lg font-display font-bold uppercase leading-none text-white">
-                  {ARTIST_DATA.genres.map((genre, i) => (
-                    <span key={genre} className="hover:text-accent transition-colors cursor-default drop-shadow-md">
-                      {genre}{i < ARTIST_DATA.genres.length - 1 && <span className="text-accent/50"> / </span>}
-                    </span>
-                  ))}
+          <div className="border-t border-white/10 pt-4">
+            <h3 className="text-xs font-mono uppercase text-accent mb-2 tracking-widest">
+              Tech Rider
+            </h3>
+            <p className="text-[10px] font-mono text-stone-400 mb-2 italic">{ARTIST_DATA.techRider.summary}</p>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 text-[10px] font-mono text-stone-300">
+              {ARTIST_DATA.techRider.gear.map((gear) => (
+                <div key={gear} className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-accent rounded-sm shadow-[0_0_5px_var(--color-accent)]" />
+                  {gear}
                 </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {ARTIST_DATA.subGenres.map((sub) => (
-                    <span key={sub} className="text-[9px] md:text-[10px] font-mono text-stone-300 border border-white/10 px-1.5 py-0.5 rounded-full bg-white/5 cursor-default">
-                      {sub}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="border-t border-white/10 pt-4">
-              <h3 className="text-[10px] font-mono uppercase text-accent mb-2 tracking-widest drop-shadow-md">Tech Rider Ready</h3>
-              <p className="text-[9px] md:text-[10px] font-mono text-stone-400 mb-1.5 italic">{ARTIST_DATA.techRider.summary}</p>
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-1.5 text-[9px] md:text-[10px] font-mono text-stone-300">
-                {ARTIST_DATA.techRider.gear.map((gear) => (
-                  <div key={gear} className="flex items-center gap-1.5">
-                    <div className="w-1 h-1 bg-accent rounded-sm shadow-[0_0_5px_var(--color-accent)]" />
-                    {gear}
-                  </div>
-                ))}
-              </div>
+              ))}
             </div>
           </div>
         </div>
-      </section>
+      </StorySection>
+
+      {/* Chapter 5: The Legend in Action (Gallery) */}
+      <StorySection animation="fade-up" delay={100} className="w-full max-w-7xl z-10">
+        <div className="space-y-4">
+          <div className="text-center">
+            <h3 className="text-sm font-mono uppercase text-accent mb-2 tracking-widest">
+              El Emperador en Acción
+            </h3>
+            <p className="font-mono text-xs text-purple-300/70 italic">
+              "Testimonio visual del dominio absoluto..."
+            </p>
+          </div>
+
+          {/* Asymmetric Grid: Option 2 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Large focal image */}
+            <StorySection animation="scale-in" delay={200} className="md:row-span-2">
+              <div className="relative group overflow-hidden border border-purple-500/30 shadow-[0_0_20px_rgba(255,0,204,0.2)] hover:shadow-[0_0_40px_rgba(255,0,204,0.4)] transition-all duration-500 aspect-[3/4]">
+                <Image
+                  src="/magnuz-live-1.jpg"
+                  alt="DJ Magnuz Live Performance"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              </div>
+            </StorySection>
+
+            {/* Smaller supporting image */}
+            <StorySection animation="scale-in" delay={300}>
+              <div className="relative group overflow-hidden border border-purple-500/30 shadow-[0_0_20px_rgba(255,0,204,0.2)] hover:shadow-[0_0_40px_rgba(255,0,204,0.4)] transition-all duration-500 aspect-[4/3]">
+                <Image
+                  src="/magnuz-live-2-edited.png"
+                  alt="DJ Magnuz at the Decks"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              </div>
+            </StorySection>
+
+            {/* Placeholder for 3rd image */}
+            <StorySection animation="scale-in" delay={400}>
+              <div className="relative group overflow-hidden border border-purple-500/30 bg-black/40 backdrop-blur-md shadow-[0_0_20px_rgba(255,0,204,0.2)] hover:shadow-[0_0_40px_rgba(255,0,204,0.4)] transition-all duration-500 aspect-[4/3] flex items-center justify-center">
+                <span className="font-mono text-xs text-purple-300/50">Próximamente...</span>
+              </div>
+            </StorySection>
+          </div>
+        </div>
+      </StorySection>
 
       {/* Navigation Footer */}
-      <nav className="flex flex-wrap gap-4 justify-center py-6 md:py-8 z-10 w-full">
+      <StorySection animation="fade-up" delay={100} className="flex flex-wrap gap-4 justify-center py-6 md:py-8 z-10 w-full">
         {[
           { name: "Music", href: "/music" },
           { name: "Contact", href: "/contact" },
@@ -177,7 +260,7 @@ export default function Home() {
             {item.name}
           </Link>
         ))}
-      </nav>
+      </StorySection>
 
       {/* Footer Badge - Upside Down Circle */}
       <div className="fixed bottom-20 right-4 md:right-8 w-24 h-24 md:w-32 md:h-32 z-40 rounded-full overflow-hidden border border-white/20 shadow-[0_0_20px_rgba(255,0,51,0.3)] hover:shadow-[0_0_30px_rgba(255,0,51,0.6)] hover:scale-105 transition-all duration-300 bg-black">

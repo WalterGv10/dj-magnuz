@@ -16,8 +16,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TechnoIdentity Platform 2025",
-  description: "High-performance techno artist website with MCP content management.",
+  title: "DJ Magnuz | El Emperador del Techno",
+  description: "Official website of DJ Magnuz, Electro-Techno Artist from Guatemala. Experience the Upside Down of Techno.",
 };
 
 export default function RootLayout({
