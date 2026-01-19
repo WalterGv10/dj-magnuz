@@ -6,6 +6,7 @@ import NeonFlex from "@/components/ui/NeonFlex";
 import StorySection from "@/components/ui/StorySection";
 import MatrixText from "@/components/ui/MatrixText";
 import GalleryImage from "@/components/ui/GalleryImage";
+import VideoEmbed from "@/components/ui/VideoEmbed";
 
 const ARTIST_DATA = {
   profile: {
@@ -195,6 +196,23 @@ export default function Home() {
         </div>
       </StorySection>
 
+      {/* Chapter 4.5: The Ritual (Featured Video) */}
+      <StorySection id="ritual" animation="fade-up" delay={50} className="w-full max-w-7xl z-10 flex flex-col items-center gap-8">
+        <div className="text-center group">
+          <h3 className="text-sm font-mono uppercase text-accent mb-2 tracking-[0.3em] group-hover:text-white transition-colors">
+            <MatrixText text="Ritual en Vivo" glitchIntensity={0.12} />
+          </h3>
+          <p className="font-mono text-[10px] text-purple-300/60 italic max-w-xs mx-auto">
+            "Frecuencias que trascienden el plano material..."
+          </p>
+        </div>
+
+        <VideoEmbed
+          url="https://www.instagram.com/reel/DTrA3zBgPwH/"
+          title="DJ Magnuz Featured Set"
+        />
+      </StorySection>
+
       {/* Chapter 5: The Legend in Action (Gallery) */}
       <StorySection animation="fade-up" delay={100} className="w-full max-w-7xl z-10">
         <div className="space-y-4">
@@ -250,11 +268,12 @@ export default function Home() {
       <StorySection animation="fade-up" delay={100} className="flex flex-wrap gap-4 justify-center py-6 md:py-8 z-10 w-full">
         {[
           { name: "Music", href: "/music" },
+          { name: "Instagram", href: "https://www.instagram.com/reel/DTrA3zBgPwH/?igsh=MXN6YjIyMHJuYngzaw==" },
           { name: "Contact", href: "/contact" },
         ].map((item) => (
           <Link
             key={item.name}
-            href={item.href}
+            href={item.name === "Instagram" ? "#ritual" : item.href}
             className="px-6 py-3 border border-white/20 hover:bg-accent hover:text-black hover:border-accent transition-all duration-300 font-mono text-xs uppercase tracking-widest bg-black/50 backdrop-blur-md"
           >
             {item.name}

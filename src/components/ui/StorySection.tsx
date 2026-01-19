@@ -7,13 +7,15 @@ interface StorySectionProps {
     animation?: 'fade-up' | 'slide-left' | 'slide-right' | 'scale-in';
     delay?: number;
     className?: string;
+    id?: string;
 }
 
 export default function StorySection({
     children,
     animation = 'fade-up',
     delay = 0,
-    className = ''
+    className = '',
+    id
 }: StorySectionProps) {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -46,6 +48,7 @@ export default function StorySection({
     return (
         <div
             ref={ref}
+            id={id}
             className={`story-section story-${animation} ${className}`}
             style={{ transitionDelay: `${delay}ms` }}
         >

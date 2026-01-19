@@ -26,6 +26,15 @@ export default function MatrixText({
 
         const glitch = () => {
             if (Math.random() < glitchIntensity) {
+                // RGB Split / Jitter Effect
+                if (element) {
+                    element.style.textShadow = `
+                        ${Math.random() * 4 - 2}px 0 rgba(255,0,0,0.7),
+                        ${Math.random() * -4 + 2}px 0 rgba(0,255,255,0.7)
+                    `;
+                    element.style.transform = `translate(${Math.random() * 2 - 1}px, ${Math.random() * 2 - 1}px)`;
+                }
+
                 const glitchedText = originalText
                     .split('')
                     .map((char, index) => {
@@ -41,7 +50,11 @@ export default function MatrixText({
 
                 // Reset back to original after a short delay
                 setTimeout(() => {
-                    if (element) element.textContent = originalText;
+                    if (element) {
+                        element.textContent = originalText;
+                        element.style.textShadow = '';
+                        element.style.transform = '';
+                    }
                 }, 50 + Math.random() * 100);
             }
 
