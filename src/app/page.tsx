@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import NeonFlex from "@/components/ui/NeonFlex";
 import StorySection from "@/components/ui/StorySection";
 import MatrixText from "@/components/ui/MatrixText";
+import GalleryImage from "@/components/ui/GalleryImage";
 
 const ARTIST_DATA = {
   profile: {
@@ -210,35 +211,36 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Large focal image */}
             <StorySection animation="scale-in" delay={200} className="md:row-span-2">
-              <div className="relative group overflow-hidden border border-purple-500/30 shadow-[0_0_20px_rgba(255,0,204,0.2)] hover:shadow-[0_0_40px_rgba(255,0,204,0.4)] transition-all duration-500 aspect-[3/4]">
-                <Image
-                  src="/magnuz-live-1.jpg"
-                  alt="DJ Magnuz Live Performance"
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              </div>
+              <GalleryImage
+                src="/magnuz-live-1.jpg"
+                alt="DJ Magnuz Live Performance"
+                aspectRatio="aspect-[3/4]"
+              />
             </StorySection>
 
             {/* Smaller supporting image */}
             <StorySection animation="scale-in" delay={300}>
-              <div className="relative group overflow-hidden border border-purple-500/30 shadow-[0_0_20px_rgba(255,0,204,0.2)] hover:shadow-[0_0_40px_rgba(255,0,204,0.4)] transition-all duration-500 aspect-[4/3]">
-                <Image
-                  src="/magnuz-live-2-edited.png"
-                  alt="DJ Magnuz at the Decks"
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              </div>
+              <GalleryImage
+                src="/magnuz-live-2-edited.png"
+                alt="DJ Magnuz at the Decks"
+                aspectRatio="aspect-[4/3]"
+              />
             </StorySection>
 
             {/* Placeholder for 3rd image */}
             <StorySection animation="scale-in" delay={400}>
-              <div className="relative group overflow-hidden border border-purple-500/30 bg-black/40 backdrop-blur-md shadow-[0_0_20px_rgba(255,0,204,0.2)] hover:shadow-[0_0_40px_rgba(255,0,204,0.4)] transition-all duration-500 aspect-[4/3] flex items-center justify-center">
-                <span className="font-mono text-xs text-purple-300/50">Próximamente...</span>
-              </div>
+              <GalleryImage
+                src="/magnuz-live-2.jpg"
+                alt="Coming Soon"
+                aspectRatio="aspect-[4/3]"
+                className="opacity-50 grayscale"
+              >
+                <div className="absolute inset-0 flex items-center justify-center z-40 bg-black/40">
+                  <span className="font-mono text-xs text-purple-300">
+                    <MatrixText text="Próximamente..." glitchIntensity={0.1} />
+                  </span>
+                </div>
+              </GalleryImage>
             </StorySection>
           </div>
         </div>
