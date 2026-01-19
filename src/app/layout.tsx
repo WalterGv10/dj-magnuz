@@ -36,9 +36,10 @@ export default function RootLayout({
             bottomColor="#000000"
             intensity={1.5}
             pillarWidth={30}
-            noiseIntensity={0.85}
+            noiseIntensity={0.3}
+            quality="medium"
             interactive={true}
-            rotationSpeed={0.2}
+            rotationSpeed={0.5}
             className="h-full w-full"
           />
         </div>

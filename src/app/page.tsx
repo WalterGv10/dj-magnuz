@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-import UpsideDownParticles from "@/components/ui/UpsideDownParticles";
 import NeonFlex from "@/components/ui/NeonFlex";
 import StorySection from "@/components/ui/StorySection";
+import MatrixText from "@/components/ui/MatrixText";
 
 const ARTIST_DATA = {
   profile: {
@@ -37,8 +37,6 @@ const ARTIST_DATA = {
 export default function Home() {
   return (
     <main className="min-h-screen w-full flex flex-col items-center justify-center p-4 md:p-8 gap-16 md:gap-24 lg:gap-32 overflow-x-hidden relative">
-      <UpsideDownParticles />
-
       {/* Turbulence Filter for Rift Effect */}
       <svg className="hidden">
         <filter id="turbulence">
@@ -62,10 +60,10 @@ export default function Home() {
         </div>
 
         <h1 className="text-5xl md:text-8xl lg:text-[9rem] font-display font-bold tracking-tighter uppercase leading-[0.85] text-stranger-things relative z-10">
-          DJ<br />Magnuz
+          <MatrixText text="DJ" glitchIntensity={0.05} /><br /><MatrixText text="Magnuz" glitchIntensity={0.05} />
         </h1>
         <h2 className="text-lg md:text-3xl font-bold tracking-widest mt-1 z-10 text-stranger-things-sm">
-          El Emperador del Techno
+          <MatrixText text="El Emperador del Techno" glitchIntensity={0.08} />
         </h2>
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 mt-3">
           <span className="text-xs md:text-base font-bold tracking-wider text-stranger-things-sm border border-purple-500/50 px-3 py-1 rounded-full bg-black/30 backdrop-blur-sm">
@@ -74,7 +72,7 @@ export default function Home() {
         </div>
 
         <p className="font-mono text-[10px] md:text-sm text-purple-300/80 italic mt-3 max-w-2xl px-4">
-          "En las profundidades de la escena underground de Guatemala, una fuerza emerge..."
+          <MatrixText text={`"En las profundidades de la escena underground de Guatemala, una fuerza emerge..."`} glitchIntensity={0.03} />
         </p>
       </StorySection>
 
@@ -111,7 +109,7 @@ export default function Home() {
         <div className="md:col-span-7 flex flex-col gap-4">
           <StorySection animation="fade-up" delay={300}>
             <h3 className="font-mono text-xs md:text-sm text-purple-300 uppercase tracking-widest mb-2">
-              El Emperador del Techno
+              <MatrixText text="El Emperador del Techno" glitchIntensity={0.06} />
             </h3>
             <p className="font-mono text-sm leading-relaxed text-stone-100 border-l-2 border-accent pl-4">
               {ARTIST_DATA.profile.bio}
@@ -129,7 +127,7 @@ export default function Home() {
           <div className="absolute -top-20 -right-20 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
           <h3 className="text-[10px] font-mono uppercase text-accent mb-3 tracking-widest">
-            Territorios Conquistados
+            <MatrixText text="Territorios Conquistados" glitchIntensity={0.07} />
           </h3>
           <p className="font-mono text-[9px] text-purple-300/70 italic mb-3">
             "Desde clubes legendarios hasta rave secretos, el Emperador ha dejado su marca..."
@@ -156,7 +154,7 @@ export default function Home() {
         <div className="bg-black/60 backdrop-blur-md border border-white/5 p-4 md:p-8 space-y-4 w-full">
           <div>
             <h3 className="text-[10px] font-mono uppercase text-accent mb-2 tracking-widest">
-              Arsenal Sónico
+              <MatrixText text="Arsenal Sónico" glitchIntensity={0.07} />
             </h3>
             <p className="font-mono text-[9px] text-purple-300/70 italic mb-3">
               "Armado con frecuencias que doblan la realidad..."
@@ -181,7 +179,7 @@ export default function Home() {
 
           <div className="border-t border-white/10 pt-4">
             <h3 className="text-xs font-mono uppercase text-accent mb-2 tracking-widest">
-              Tech Rider
+              <MatrixText text="Tech Rider" glitchIntensity={0.07} />
             </h3>
             <p className="text-[10px] font-mono text-stone-400 mb-2 italic">{ARTIST_DATA.techRider.summary}</p>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 text-[10px] font-mono text-stone-300">
@@ -201,7 +199,7 @@ export default function Home() {
         <div className="space-y-4">
           <div className="text-center">
             <h3 className="text-sm font-mono uppercase text-accent mb-2 tracking-widest">
-              El Emperador en Acción
+              <MatrixText text="El Emperador en Acción" glitchIntensity={0.07} />
             </h3>
             <p className="font-mono text-xs text-purple-300/70 italic">
               "Testimonio visual del dominio absoluto..."
@@ -276,7 +274,7 @@ export default function Home() {
       <div className="fixed bottom-0 left-0 right-0 p-2 border-t border-accent/20 bg-black/90 backdrop-blur-xl z-50 flex justify-between items-center px-4 md:px-6">
         <div className="flex items-center gap-3">
           <div className="h-1.5 w-1.5 bg-accent animate-pulse rounded-full" />
-          <span className="font-mono text-[9px] md:text-[10px] text-accent uppercase tracking-widest">Live System Active</span>
+          <span className="font-mono text-[9px] md:text-[10px] text-accent uppercase tracking-widest"><MatrixText text="Live System Active" glitchIntensity={0.15} /></span>
         </div>
         <span className="font-mono text-[10px] md:text-xs text-stone-500 hidden md:block">
           [STICKY AUDIO PLAYER LOADING...]
